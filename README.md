@@ -1,7 +1,11 @@
 # spring-cloud-demo
-Spring boot cloud boiler plate code
+Spring boot cloud boilerplate code
 
-Maven Dependencies
+http://localhost:8761/
+1) start naming-server (eureka) : port 8761
+2) start currency-exchange(loaded from h2) :  port 8000 series
+3) start currency-conversion(feign client pulls from exchange) : port 8100 series
+4) start api gateway : port 8765
 
-<img width="1407" alt="image" src="https://github.com/user-attachments/assets/062b196a-9223-45c5-8ea7-8d80c7a30e9f" />
+Api gateway predicts routes from naming-server and will hit currency-conversion or currency exchange service accordingly with load balance
 
