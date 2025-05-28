@@ -1,0 +1,36 @@
+resilience4j:
+  bulkhead:
+    instances:
+      externalApi:
+        maxThreadPoolSize: 5
+        coreThreadPoolSize: 5
+        queueCapacity: 100
+  circuitbreaker:
+    instances:
+      externalApi:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 100
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 10
+        waitDurationInOpenState: 10s
+  timelimiter:
+    instances:
+      externalApi:
+        timeoutDuration: 2s
+        cancelRunningFuture: true
+  retry:
+    instances:
+      externalApi:
+        maxAttempts: 3
+        waitDuration: 1s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,resilience4j
+  endpoint:
+    health:
+      show-details: always
