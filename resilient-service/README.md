@@ -37,6 +37,11 @@ The application includes pre-configured resilience patterns:
 ### Time Limiter
 - Timeout duration: 2 seconds
 - Cancels running future on timeout
+
+## Running the application 
+```
+./test-requests.sh
+```
 ## Building the Application
 ```
 mvn clean install
@@ -44,6 +49,10 @@ mvn clean install
 ## Running the Application
 ```
 mvn spring-boot:run
+```
+## Parallel HTTP Request for the application 
+```
+./test-requests.sh
 ```
 ## Monitoring
 The application exposes several actuator endpoints:
